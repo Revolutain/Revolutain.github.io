@@ -1,3 +1,648 @@
-<html>
-    coming soon!
+<!doctype html>
+<html lang="en" data-bs-theme="dark">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Revolutain | AI Consulting & Training</title>
+  <meta name="description" content="Revolutain helps organizations adopt AI with confidence through strategy consulting, custom solutions, and hands-on training.">
+
+  <!-- Bootstrap 5.3 -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    /* ---------- Theme: override Bootstrap variables ---------- */
+    :root, [data-bs-theme="dark"] {
+      --rv-violet: #7c5cff;
+      --rv-cyan: #22d3ee;
+      --rv-pink: #f472b6;
+      --rv-green: #34d399;
+      --rv-grad: linear-gradient(120deg, var(--rv-violet) 0%, var(--rv-cyan) 100%);
+      --rv-surface: rgba(255, 255, 255, 0.04);
+      --rv-surface-strong: rgba(255, 255, 255, 0.07);
+      --rv-bg-alt: #0c1226;
+
+      --bs-body-bg: #070b1a;
+      --bs-body-color: #e8ecf8;
+      --bs-secondary-color: #97a0bd;
+      --bs-border-color: rgba(255, 255, 255, 0.09);
+      --bs-body-font-family: "Inter", system-ui, -apple-system, sans-serif;
+      --bs-primary: #7c5cff;
+      --bs-primary-rgb: 124, 92, 255;
+      --bs-link-color: #e8ecf8;
+      --bs-link-hover-color: #fff;
+      --bs-border-radius-lg: 18px;
+    }
+
+    html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+    body { overflow-x: hidden; }
+    h1, h2, h3, h4, h5, .navbar-brand, .font-display { font-family: "Space Grotesk", "Inter", sans-serif; }
+    a { text-decoration: none; }
+    .text-muted-rv { color: var(--bs-secondary-color) !important; }
+    .bg-alt { background: var(--rv-bg-alt); }
+    .grad-text { background: var(--rv-grad); -webkit-background-clip: text; background-clip: text; color: transparent; }
+
+    .eyebrow {
+      display: inline-flex; align-items: center; gap: 8px;
+      font-size: .8rem; font-weight: 600; letter-spacing: .12em; text-transform: uppercase;
+      color: var(--rv-cyan); margin-bottom: 14px;
+    }
+    .eyebrow::before, .text-center .eyebrow::after { content: ""; width: 22px; height: 2px; background: var(--rv-grad); border-radius: 2px; }
+
+    .section { padding: 110px 0; position: relative; }
+    .section-title { font-size: clamp(2rem, 4vw, 2.8rem); font-weight: 700; }
+
+    /* ---------- Buttons ---------- */
+    .btn { border-radius: 999px; font-weight: 600; padding: .8rem 1.6rem; transition: transform .2s, box-shadow .2s, background .2s; }
+    .btn-gradient { background: var(--rv-grad); color: #fff; border: none; box-shadow: 0 10px 30px -10px rgba(124,92,255,.7); }
+    .btn-gradient:hover, .btn-gradient:focus { color: #fff; transform: translateY(-2px); box-shadow: 0 16px 40px -12px rgba(34,211,238,.7); }
+    .btn-glass { background: var(--rv-surface); border: 1px solid var(--bs-border-color); color: var(--bs-body-color); }
+    .btn-glass:hover { background: var(--rv-surface-strong); color: #fff; transform: translateY(-2px); }
+
+    /* ---------- Navbar ---------- */
+    .navbar { transition: background .3s, border-color .3s; border-bottom: 1px solid transparent; min-height: 76px; }
+    .navbar.scrolled, .navbar:has(.navbar-collapse.show), .navbar:has(.navbar-collapse.collapsing) {
+      background: rgba(7, 11, 26, .88); backdrop-filter: blur(14px); border-color: var(--bs-border-color);
+    }
+    .navbar-brand { font-weight: 700; font-size: 1.4rem; }
+    .navbar .nav-link { color: var(--bs-secondary-color); font-weight: 500; }
+    .navbar .nav-link:hover, .navbar .nav-link:focus { color: #fff; }
+    .navbar .btn { padding: .55rem 1.25rem; font-size: .9rem; }
+    .navbar-toggler { border: none; }
+    .navbar-toggler:focus { box-shadow: none; }
+
+    /* ---------- Hero ---------- */
+    .hero { padding: 170px 0 110px; overflow: hidden; }
+    .hero::before {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background:
+        radial-gradient(600px 400px at 15% 20%, rgba(124,92,255,.25), transparent 70%),
+        radial-gradient(500px 400px at 85% 40%, rgba(34,211,238,.18), transparent 70%);
+    }
+    .hero::after {
+      content: ""; position: absolute; inset: 0; pointer-events: none;
+      background-image: linear-gradient(rgba(255,255,255,.035) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,.035) 1px, transparent 1px);
+      background-size: 56px 56px;
+      mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+      -webkit-mask-image: radial-gradient(ellipse at center, #000 30%, transparent 75%);
+    }
+    .hero .container { position: relative; z-index: 1; }
+    .hero h1 { font-size: clamp(2.6rem, 5.6vw, 4.2rem); font-weight: 700; letter-spacing: -.02em; line-height: 1.1; }
+    .hero .lead { color: var(--bs-secondary-color); max-width: 540px; }
+    .hero-badge { background: var(--rv-surface); border: 1px solid var(--bs-border-color); color: var(--bs-secondary-color); font-weight: 400; font-size: .86rem; }
+    .hero-badge .badge { background: var(--rv-grad); }
+    .avatars i {
+      width: 36px; height: 36px; border-radius: 50%; border: 2px solid var(--bs-body-bg);
+      margin-left: -10px; display: inline-grid; place-items: center;
+      font-style: normal; font-size: .75rem; font-weight: 700; color: #fff;
+    }
+    .avatars i:first-child { margin-left: 0; }
+
+    .hero-visual { position: relative; max-width: 520px; margin: 0 auto; aspect-ratio: 1 / 1; }
+    .float-card {
+      position: absolute; background: rgba(12,18,38,.85); backdrop-filter: blur(10px);
+      border: 1px solid var(--bs-border-color); border-radius: 14px; padding: 12px 16px;
+      box-shadow: 0 20px 40px -20px rgba(0,0,0,.6); animation: bob 6s ease-in-out infinite; font-size: .88rem;
+    }
+    .float-card strong { display: block; font-size: 1.05rem; }
+    .float-card .dot { width: 38px; height: 38px; border-radius: 10px; display: grid; place-items: center; }
+    .fc-1 { top: 10%; left: 0; }
+    .fc-2 { bottom: 12%; right: 0; animation-delay: -3s; }
+    @keyframes bob { 0%,100% { transform: translateY(0); } 50% { transform: translateY(-12px); } }
+    .pulse { animation: pulse 3s ease-in-out infinite; }
+    @keyframes pulse { 0%,100% { opacity: .55; } 50% { opacity: 1; } }
+    .spin { animation: spin 40s linear infinite; transform-origin: 250px 250px; }
+    .spin-rev { animation: spin 60s linear infinite reverse; transform-origin: 250px 250px; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .flow { stroke-dasharray: 6 10; animation: flow 2.5s linear infinite; }
+    @keyframes flow { to { stroke-dashoffset: -64; } }
+
+    /* ---------- Logos ---------- */
+    .logos { border-top: 1px solid var(--bs-border-color); border-bottom: 1px solid var(--bs-border-color); }
+    .logos .label { font-size: .85rem; letter-spacing: .08em; text-transform: uppercase; }
+    .logo-item { font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.15rem; opacity: .6; }
+
+    /* ---------- Cards (extends Bootstrap .card) ---------- */
+    .card-rv {
+      --bs-card-bg: var(--rv-surface); --bs-card-border-color: var(--bs-border-color);
+      --bs-card-border-radius: 18px; --bs-card-spacer-y: 2rem; --bs-card-spacer-x: 1.8rem;
+      position: relative; transition: transform .3s, background .3s;
+    }
+    .card-rv::before {
+      content: ""; position: absolute; inset: 0; border-radius: inherit; padding: 1px; pointer-events: none;
+      background: var(--rv-grad); opacity: 0; transition: opacity .3s;
+      -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+    }
+    .card-rv.hover-lift:hover { transform: translateY(-6px); --bs-card-bg: var(--rv-surface-strong); }
+    .card-rv.hover-lift:hover::before { opacity: 1; }
+    .icon-box {
+      width: 56px; height: 56px; border-radius: 14px; display: grid; place-items: center; margin-bottom: 1.5rem;
+      background: linear-gradient(135deg, rgba(124,92,255,.22), rgba(34,211,238,.18)); border: 1px solid rgba(124,92,255,.35);
+    }
+    .check-list li { display: flex; gap: 10px; font-size: .93rem; color: #c8cee4; margin-bottom: .5rem; }
+    .check-list li::before {
+      content: ""; flex: none; width: 16px; height: 16px; margin-top: 4px; background: var(--rv-grad);
+      -webkit-mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 11.2 3.3 8l1.1-1.1 2.1 2.1 5.1-5.1 1.1 1.1z'/%3E%3C/svg%3E") center / contain no-repeat;
+              mask: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M6.5 11.2 3.3 8l1.1-1.1 2.1 2.1 5.1-5.1 1.1 1.1z'/%3E%3C/svg%3E") center / contain no-repeat;
+    }
+
+    /* ---------- Process ---------- */
+    .steps { position: relative; }
+    @media (min-width: 992px) {
+      .steps::before {
+        content: ""; position: absolute; top: 34px; left: 12%; right: 12%; height: 2px; opacity: .5;
+        background: linear-gradient(90deg, transparent, var(--rv-violet), var(--rv-cyan), transparent);
+      }
+    }
+    .step-num {
+      width: 68px; height: 68px; border-radius: 50%; margin: 0 auto 1.4rem; position: relative;
+      display: grid; place-items: center; font-family: "Space Grotesk", sans-serif; font-weight: 700; font-size: 1.3rem;
+      border: 2px solid transparent;
+      background: linear-gradient(var(--rv-bg-alt), var(--rv-bg-alt)) padding-box, var(--rv-grad) border-box;
+      box-shadow: 0 0 30px -6px rgba(124,92,255,.6);
+    }
+
+    /* ---------- Training ---------- */
+    .course-list .list-group-item {
+      --bs-list-group-bg: var(--rv-surface); --bs-list-group-border-color: var(--bs-border-color);
+      border-radius: 14px !important; border-width: 1px !important; margin-bottom: 14px; padding: 1.1rem 1.3rem;
+      transition: border-color .25s, transform .25s;
+    }
+    .course-list .list-group-item:last-child { margin-bottom: 0; }
+    .course-list .list-group-item:hover { border-color: rgba(34,211,238,.45) !important; transform: translateX(6px); }
+    .lvl { width: 46px; height: 46px; border-radius: 12px; display: grid; place-items: center; font-weight: 700; font-size: .8rem; flex: none; }
+    .tag { background: var(--rv-surface-strong); color: var(--bs-secondary-color); font-weight: 500; }
+
+    /* ---------- Stats & quotes ---------- */
+    .stat-num { font-family: "Space Grotesk", sans-serif; font-size: 2.8rem; font-weight: 700; }
+    .stars { color: #fbbf24; letter-spacing: 3px; }
+    .person-avatar { width: 44px; height: 44px; border-radius: 50%; display: grid; place-items: center; font-weight: 700; color: #fff; flex: none; }
+
+    /* ---------- Contact ---------- */
+    .contact-box {
+      border-radius: 28px; position: relative; overflow: hidden;
+      background: linear-gradient(135deg, rgba(124,92,255,.18), rgba(34,211,238,.1)); border: 1px solid rgba(124,92,255,.3);
+    }
+    .contact-box::after {
+      content: ""; position: absolute; width: 400px; height: 400px; right: -120px; top: -160px; pointer-events: none;
+      background: radial-gradient(circle, rgba(34,211,238,.25), transparent 70%);
+    }
+    .contact-box .form-control, .contact-box .form-select {
+      background-color: rgba(7,11,26,.6); border-color: var(--bs-border-color); border-radius: 12px; padding: .85rem 1rem;
+    }
+    .contact-box .form-control:focus, .contact-box .form-select:focus { border-color: var(--rv-violet); box-shadow: 0 0 0 .25rem rgba(124,92,255,.2); }
+    .contact-box form { position: relative; z-index: 1; }
+
+    /* ---------- Footer ---------- */
+    footer a { color: var(--bs-secondary-color); }
+    footer a:hover { color: #fff; }
+
+    /* ---------- Reveal on scroll ---------- */
+    .reveal { opacity: 0; transform: translateY(28px); transition: opacity .8s ease, transform .8s ease; }
+    .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after { animation: none !important; transition: none !important; }
+      .reveal { opacity: 1; transform: none; }
+    }
+    @media (max-width: 767.98px) {
+      .section { padding: 80px 0; }
+      .hero { padding: 130px 0 80px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- Shared SVG gradient used by logo and icons -->
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <defs>
+      <linearGradient id="lg-logo" x1="0" y1="0" x2="1" y2="1">
+        <stop offset="0" stop-color="#7c5cff"/><stop offset="1" stop-color="#22d3ee"/>
+      </linearGradient>
+    </defs>
+  </svg>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg fixed-top" id="mainNav">
+    <div class="container">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#top">
+        <svg width="36" height="36" viewBox="0 0 40 40" aria-hidden="true">
+          <path d="M20 3 35 11.5v17L20 37 5 28.5v-17z" fill="none" stroke="url(#lg-logo)" stroke-width="2.4"/>
+          <path d="M20 10 28 24H12z" fill="url(#lg-logo)" opacity=".9"/>
+          <circle cx="20" cy="24" r="3.2" fill="#070b1a"/>
+        </svg>
+        Revolutain
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navMenu" aria-controls="navMenu" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navMenu">
+        <ul class="navbar-nav mx-auto gap-lg-3 py-3 py-lg-0">
+          <li class="nav-item"><a class="nav-link" href="#services">Services</a></li>
+          <li class="nav-item"><a class="nav-link" href="#process">Approach</a></li>
+          <li class="nav-item"><a class="nav-link" href="#training">Training</a></li>
+          <li class="nav-item"><a class="nav-link" href="#results">Results</a></li>
+          <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-gradient mb-3 mb-lg-0">Book a Call</a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero -->
+  <header class="hero section" id="top">
+    <div class="container">
+      <div class="row align-items-center gy-5 gx-4 gx-lg-5">
+        <div class="col-lg-6">
+          <span class="badge rounded-pill hero-badge d-inline-flex align-items-center gap-2 py-2 ps-2 pe-3 mb-4">
+            <span class="badge rounded-pill">New</span> Generative AI Bootcamps now enrolling
+          </span>
+          <h1 class="mb-4">Turn AI potential into <span class="grad-text">real business results</span></h1>
+          <p class="lead mb-5">Revolutain partners with leaders and teams to design AI strategy, build practical solutions, and train people to use AI confidently, responsibly, and at scale.</p>
+          <div class="d-flex flex-wrap gap-3">
+            <a href="#contact" class="btn btn-gradient btn-lg d-inline-flex align-items-center gap-2">
+              Start Your AI Journey
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+            </a>
+            <a href="#training" class="btn btn-glass btn-lg">Explore Training</a>
+          </div>
+          <div class="d-flex align-items-center gap-3 mt-5 text-muted-rv small">
+            <div class="avatars d-flex">
+              <i style="background:#7c5cff">JM</i><i style="background:#22d3ee">AK</i><i style="background:#f472b6">SR</i><i style="background:#34d399">LT</i>
+            </div>
+            Trusted by 120+ organizations and 5,000+ professionals
+          </div>
+        </div>
+
+        <div class="col-lg-6">
+          <div class="hero-visual" aria-hidden="true">
+            <svg viewBox="0 0 500 500" class="w-100 h-100">
+              <defs>
+                <radialGradient id="core" cx=".5" cy=".5" r=".5">
+                  <stop offset="0" stop-color="#22d3ee" stop-opacity=".9"/>
+                  <stop offset=".55" stop-color="#7c5cff" stop-opacity=".55"/>
+                  <stop offset="1" stop-color="#7c5cff" stop-opacity="0"/>
+                </radialGradient>
+                <filter id="glow"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+              </defs>
+              <circle cx="250" cy="250" r="200" fill="none" stroke="url(#lg-logo)" stroke-opacity=".25" stroke-width="1.5"/>
+              <g class="spin">
+                <circle cx="250" cy="250" r="160" fill="none" stroke="url(#lg-logo)" stroke-opacity=".45" stroke-width="1.5" stroke-dasharray="4 12"/>
+                <circle cx="410" cy="250" r="7" fill="#22d3ee" filter="url(#glow)"/>
+                <circle cx="90" cy="250" r="5" fill="#7c5cff" filter="url(#glow)"/>
+              </g>
+              <g class="spin-rev">
+                <circle cx="250" cy="250" r="118" fill="none" stroke="#f472b6" stroke-opacity=".3" stroke-width="1.2" stroke-dasharray="2 8"/>
+                <circle cx="250" cy="132" r="5" fill="#f472b6" filter="url(#glow)"/>
+              </g>
+              <g stroke="url(#lg-logo)" stroke-width="1.3" fill="none" opacity=".7">
+                <path class="flow" d="M150 180 L220 150 M150 180 L220 250 M150 180 L220 350 M150 250 L220 150 M150 250 L220 250 M150 250 L220 350 M150 320 L220 150 M150 320 L220 250 M150 320 L220 350"/>
+                <path class="flow" d="M220 150 L290 200 M220 150 L290 300 M220 250 L290 200 M220 250 L290 300 M220 350 L290 200 M220 350 L290 300"/>
+                <path class="flow" d="M290 200 L355 250 M290 300 L355 250"/>
+              </g>
+              <circle cx="250" cy="250" r="85" fill="url(#core)" class="pulse"/>
+              <g filter="url(#glow)">
+                <circle cx="150" cy="180" r="9" fill="#7c5cff"/><circle cx="150" cy="250" r="9" fill="#7c5cff"/><circle cx="150" cy="320" r="9" fill="#7c5cff"/>
+                <circle cx="220" cy="150" r="10" fill="#a78bfa"/><circle cx="220" cy="250" r="10" fill="#a78bfa"/><circle cx="220" cy="350" r="10" fill="#a78bfa"/>
+                <circle cx="290" cy="200" r="10" fill="#67e8f9"/><circle cx="290" cy="300" r="10" fill="#67e8f9"/>
+                <circle cx="355" cy="250" r="14" fill="#22d3ee"/>
+              </g>
+              <circle cx="355" cy="250" r="24" fill="none" stroke="#22d3ee" stroke-opacity=".5" class="pulse"/>
+            </svg>
+
+            <div class="float-card fc-1 d-flex align-items-center gap-3">
+              <div class="dot" style="background:rgba(52,211,153,.15)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#34d399" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 17l6-6 4 4 8-8M15 7h6v6"/></svg>
+              </div>
+              <div><strong>+38%</strong><small class="text-muted-rv">Team productivity</small></div>
+            </div>
+            <div class="float-card fc-2 d-flex align-items-center gap-3">
+              <div class="dot" style="background:rgba(124,92,255,.18)">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#a78bfa" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2l3 6.5 7 .8-5.2 4.8 1.5 7L12 17.5 5.7 21l1.5-7L2 9.3l7-.8z"/></svg>
+              </div>
+              <div><strong>4.9 / 5</strong><small class="text-muted-rv">Training rating</small></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <!-- Logo strip -->
+  <div class="logos bg-alt py-5">
+    <div class="container">
+      <p class="label text-center text-muted-rv mb-4">Helping teams across industries</p>
+      <div class="row row-cols-2 row-cols-md-3 row-cols-lg-5 g-4 justify-content-center text-center">
+        <div class="col"><span class="logo-item d-inline-flex align-items-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><circle cx="12" cy="12" r="10"/></svg>Northwind</span></div>
+        <div class="col"><span class="logo-item d-inline-flex align-items-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2 22 20H2z"/></svg>Apexa Health</span></div>
+        <div class="col"><span class="logo-item d-inline-flex align-items-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><rect x="3" y="3" width="18" height="18" rx="4"/></svg>Quantive</span></div>
+        <div class="col"><span class="logo-item d-inline-flex align-items-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l10 10-10 10L2 12z"/></svg>Meridian Bank</span></div>
+        <div class="col"><span class="logo-item d-inline-flex align-items-center gap-2"><svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M4 4h7v7H4zM13 13h7v7h-7zM13 4h7v7h-7z"/></svg>Lumen Retail</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Services -->
+  <section class="section" id="services">
+    <div class="container">
+      <div class="row mb-5">
+        <div class="col-lg-8 reveal">
+          <div class="eyebrow">What we do</div>
+          <h2 class="section-title mb-3">End-to-end AI expertise, <span class="grad-text">from strategy to skills</span></h2>
+          <p class="fs-5 text-muted-rv">Whether you're exploring your first use case or scaling AI across the enterprise, we meet you where you are and move you forward.</p>
+        </div>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-rv hover-lift h-100"><div class="card-body">
+            <div class="icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#lg-logo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.5" fill="#22d3ee"/><path d="M12 3v2M21 12h-2M12 21v-2M3 12h2"/></svg>
+            </div>
+            <h3 class="h4 card-title">AI Strategy &amp; Roadmapping</h3>
+            <p class="text-muted-rv">Identify the highest-value opportunities and build a clear, prioritized plan your leadership can act on.</p>
+            <ul class="list-unstyled check-list mb-0">
+              <li>AI readiness assessment</li>
+              <li>Use-case discovery &amp; ROI modeling</li>
+              <li>Governance &amp; responsible AI frameworks</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-rv hover-lift h-100"><div class="card-body">
+            <div class="icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#lg-logo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 6 2 12l6 6M16 6l6 6-6 6M14 4l-4 16"/></svg>
+            </div>
+            <h3 class="h4 card-title">Custom AI Solutions</h3>
+            <p class="text-muted-rv">We design and build production-ready AI tools tailored to your data, workflows, and security requirements.</p>
+            <ul class="list-unstyled check-list mb-0">
+              <li>LLM apps, copilots &amp; AI agents</li>
+              <li>Retrieval-augmented generation (RAG)</li>
+              <li>Workflow automation &amp; integrations</li>
+            </ul>
+          </div></div>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <div class="card card-rv hover-lift h-100"><div class="card-body">
+            <div class="icon-box">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="url(#lg-logo)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 9 12 4 2 9l10 5 10-5z"/><path d="M6 11v5c0 1.7 2.7 3 6 3s6-1.3 6-3v-5M22 9v6"/></svg>
+            </div>
+            <h3 class="h4 card-title">AI Training &amp; Upskilling</h3>
+            <p class="text-muted-rv">Hands-on programs that build AI fluency, from executive briefings to deep technical bootcamps.</p>
+            <ul class="list-unstyled check-list mb-0">
+              <li>Executive &amp; leadership workshops</li>
+              <li>Prompt engineering for every team</li>
+              <li>Developer bootcamps &amp; certifications</li>
+            </ul>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section class="section bg-alt" id="process">
+    <div class="container">
+      <div class="row justify-content-center mb-5">
+        <div class="col-lg-8 text-center reveal">
+          <div class="eyebrow">Our approach</div>
+          <h2 class="section-title mb-3">A proven path from <span class="grad-text">idea to impact</span></h2>
+          <p class="fs-5 text-muted-rv">A focused, four-phase engagement model that delivers early wins while building long-term capability.</p>
+        </div>
+      </div>
+      <div class="row gy-5 gx-4 gx-lg-5 steps text-center">
+        <div class="col-sm-6 col-lg-3 reveal"><div class="step-num">01</div><h3 class="h5">Discover</h3><p class="text-muted-rv small">We map your goals, data, and workflows to uncover where AI creates the most value.</p></div>
+        <div class="col-sm-6 col-lg-3 reveal"><div class="step-num">02</div><h3 class="h5">Design</h3><p class="text-muted-rv small">We prioritize use cases and architect solutions with security and governance built in.</p></div>
+        <div class="col-sm-6 col-lg-3 reveal"><div class="step-num">03</div><h3 class="h5">Deliver</h3><p class="text-muted-rv small">We build, pilot, and iterate quickly, proving value with measurable outcomes.</p></div>
+        <div class="col-sm-6 col-lg-3 reveal"><div class="step-num">04</div><h3 class="h5">Empower</h3><p class="text-muted-rv small">We train your people so they can own, extend, and scale AI with confidence.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Training -->
+  <section class="section" id="training">
+    <div class="container">
+      <div class="row align-items-center gy-5 gx-4 gx-lg-5">
+        <div class="col-lg-5 reveal">
+          <div class="eyebrow">Training programs</div>
+          <h2 class="section-title mb-3">Build an <span class="grad-text">AI-fluent</span> workforce</h2>
+          <p class="fs-5 text-muted-rv mb-4">Live, instructor-led programs delivered on-site or virtually. Every course is customized with your tools, your data, and your real-world scenarios.</p>
+          <a href="#contact" class="btn btn-gradient">Request a Syllabus</a>
+        </div>
+        <div class="col-lg-7 reveal">
+          <div class="card card-rv"><div class="card-body p-4">
+            <div class="list-group course-list">
+              <div class="list-group-item d-flex align-items-center gap-3">
+                <div class="lvl" style="background:rgba(52,211,153,.15);color:#34d399">101</div>
+                <div class="flex-grow-1"><h4 class="h6 mb-1">AI Foundations for Everyone</h4><p class="small text-muted-rv mb-0">Core concepts, everyday use cases, and safe usage.</p></div>
+                <span class="badge rounded-pill tag">Half day</span>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3">
+                <div class="lvl" style="background:rgba(34,211,238,.15);color:#22d3ee">201</div>
+                <div class="flex-grow-1"><h4 class="h6 mb-1">Prompt Engineering Mastery</h4><p class="small text-muted-rv mb-0">Techniques to get reliable, high-quality output.</p></div>
+                <span class="badge rounded-pill tag">1 day</span>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3">
+                <div class="lvl" style="background:rgba(124,92,255,.18);color:#a78bfa">301</div>
+                <div class="flex-grow-1"><h4 class="h6 mb-1">AI Strategy for Leaders</h4><p class="small text-muted-rv mb-0">Evaluate opportunities, risk, and investment.</p></div>
+                <span class="badge rounded-pill tag">1 day</span>
+              </div>
+              <div class="list-group-item d-flex align-items-center gap-3">
+                <div class="lvl" style="background:rgba(244,114,182,.15);color:#f472b6">401</div>
+                <div class="flex-grow-1"><h4 class="h6 mb-1">Building LLM Applications</h4><p class="small text-muted-rv mb-0">RAG, agents, and evaluation for developers.</p></div>
+                <span class="badge rounded-pill tag">3 days</span>
+              </div>
+            </div>
+          </div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Stats -->
+  <section class="section pt-0" id="results">
+    <div class="container">
+      <div class="row g-4 text-center">
+        <div class="col-6 col-lg-3 reveal"><div class="card card-rv h-100"><div class="card-body"><div class="stat-num grad-text" data-count="120" data-suffix="+">0</div><span class="text-muted-rv">Organizations served</span></div></div></div>
+        <div class="col-6 col-lg-3 reveal"><div class="card card-rv h-100"><div class="card-body"><div class="stat-num grad-text" data-count="5000" data-suffix="+">0</div><span class="text-muted-rv">Professionals trained</span></div></div></div>
+        <div class="col-6 col-lg-3 reveal"><div class="card card-rv h-100"><div class="card-body"><div class="stat-num grad-text" data-count="85" data-suffix="+">0</div><span class="text-muted-rv">AI solutions deployed</span></div></div></div>
+        <div class="col-6 col-lg-3 reveal"><div class="card card-rv h-100"><div class="card-body"><div class="stat-num grad-text" data-count="3" data-suffix="x">0</div><span class="text-muted-rv">Average first-year ROI</span></div></div></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Testimonials -->
+  <section class="section bg-alt">
+    <div class="container">
+      <div class="text-center mb-5 reveal">
+        <div class="eyebrow">Client stories</div>
+        <h2 class="section-title">What our clients say</h2>
+      </div>
+      <div class="row g-4">
+        <div class="col-md-6 col-lg-4 reveal">
+          <figure class="card card-rv h-100 mb-0"><div class="card-body d-flex flex-column">
+            <div class="stars mb-3">★★★★★</div>
+            <blockquote class="flex-grow-1 mb-4">"Revolutain helped us cut through the hype and focus on three use cases that paid for the engagement within a quarter."</blockquote>
+            <figcaption class="d-flex align-items-center gap-3"><span class="person-avatar" style="background:linear-gradient(135deg,#7c5cff,#22d3ee)">MR</span><div><strong class="d-block">Maria R.</strong><small class="text-muted-rv">COO, Logistics firm</small></div></figcaption>
+          </div></figure>
+        </div>
+        <div class="col-md-6 col-lg-4 reveal">
+          <figure class="card card-rv h-100 mb-0"><div class="card-body d-flex flex-column">
+            <div class="stars mb-3">★★★★★</div>
+            <blockquote class="flex-grow-1 mb-4">"The prompt engineering workshop was the most practical training our team has had in years. Adoption jumped immediately."</blockquote>
+            <figcaption class="d-flex align-items-center gap-3"><span class="person-avatar" style="background:linear-gradient(135deg,#f472b6,#7c5cff)">DK</span><div><strong class="d-block">David K.</strong><small class="text-muted-rv">VP Marketing, SaaS company</small></div></figcaption>
+          </div></figure>
+        </div>
+        <div class="col-md-12 col-lg-4 reveal">
+          <figure class="card card-rv h-100 mb-0"><div class="card-body d-flex flex-column">
+            <div class="stars mb-3">★★★★★</div>
+            <blockquote class="flex-grow-1 mb-4">"Their engineers built us a secure internal knowledge assistant, and trained our developers to maintain and extend it."</blockquote>
+            <figcaption class="d-flex align-items-center gap-3"><span class="person-avatar" style="background:linear-gradient(135deg,#22d3ee,#34d399)">SP</span><div><strong class="d-block">Sarah P.</strong><small class="text-muted-rv">CTO, Healthcare provider</small></div></figcaption>
+          </div></figure>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section class="section" id="contact">
+    <div class="container">
+      <div class="contact-box p-4 p-md-5 reveal">
+        <div class="row gy-5 gx-4 gx-lg-5 align-items-center">
+          <div class="col-lg-6">
+            <div class="eyebrow">Let's talk</div>
+            <h2 class="section-title mb-3">Ready to lead the <span class="grad-text">AI revolution?</span></h2>
+            <p class="text-muted-rv mb-4">Book a free 30-minute discovery call. We'll discuss your goals and outline where AI can make the biggest difference for your organization.</p>
+            <div class="d-flex align-items-center gap-3 mb-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 6-10 7L2 6"/></svg>
+              <a href="mailto:hello@revolutain.com">hello@revolutain.com</a>
+            </div>
+            <div class="d-flex align-items-center gap-3">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#22d3ee" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg>
+              Response within one business day
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <form id="contactForm" class="needs-validation" novalidate>
+              <div class="row g-3">
+                <div class="col-sm-6">
+                  <input type="text" class="form-control" name="name" placeholder="Full name" aria-label="Full name" required>
+                  <div class="invalid-feedback">Please enter your name.</div>
+                </div>
+                <div class="col-sm-6">
+                  <input type="email" class="form-control" name="email" placeholder="Work email" aria-label="Work email" required>
+                  <div class="invalid-feedback">Please enter a valid email.</div>
+                </div>
+                <div class="col-12"><input type="text" class="form-control" name="company" placeholder="Company" aria-label="Company"></div>
+                <div class="col-12">
+                  <select class="form-select" name="interest" aria-label="I'm interested in">
+                    <option value="" selected>I'm interested in…</option>
+                    <option>AI Strategy &amp; Roadmapping</option>
+                    <option>Custom AI Solutions</option>
+                    <option>AI Training &amp; Upskilling</option>
+                    <option>Not sure yet</option>
+                  </select>
+                </div>
+                <div class="col-12"><textarea class="form-control" name="message" rows="4" placeholder="Tell us about your goals" aria-label="Message"></textarea></div>
+                <div class="col-12 d-grid"><button type="submit" class="btn btn-gradient">Send Message</button></div>
+              </div>
+            </form>
+            <div class="alert alert-info mt-3 mb-0 d-none" id="formNote" role="status">Thanks! We'll be in touch within one business day.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-top pt-5 pb-4">
+    <div class="container">
+      <div class="row g-4 mb-4">
+        <div class="col-lg-5">
+          <a href="#top" class="navbar-brand d-inline-flex align-items-center gap-2 text-white">
+            <svg width="30" height="30" viewBox="0 0 40 40" aria-hidden="true">
+              <path d="M20 3 35 11.5v17L20 37 5 28.5v-17z" fill="none" stroke="url(#lg-logo)" stroke-width="2.4"/>
+              <path d="M20 10 28 24H12z" fill="url(#lg-logo)" opacity=".9"/>
+              <circle cx="20" cy="24" r="3.2" fill="#070b1a"/>
+            </svg>
+            Revolutain
+          </a>
+          <p class="text-muted-rv small mt-3" style="max-width:300px">AI consulting and training that turns potential into performance.</p>
+        </div>
+        <div class="col-4 col-lg-2">
+          <h5 class="h6 mb-3">Services</h5>
+          <ul class="list-unstyled small d-grid gap-2"><li><a href="#services">Strategy</a></li><li><a href="#services">Solutions</a></li><li><a href="#training">Training</a></li></ul>
+        </div>
+        <div class="col-4 col-lg-2">
+          <h5 class="h6 mb-3">Company</h5>
+          <ul class="list-unstyled small d-grid gap-2"><li><a href="#process">Approach</a></li><li><a href="#results">Results</a></li><li><a href="#contact">Contact</a></li></ul>
+        </div>
+        <div class="col-4 col-lg-3">
+          <h5 class="h6 mb-3">Connect</h5>
+          <ul class="list-unstyled small d-grid gap-2"><li><a href="#">LinkedIn</a></li><li><a href="#">YouTube</a></li><li><a href="#">Newsletter</a></li></ul>
+        </div>
+      </div>
+      <div class="d-flex flex-wrap justify-content-between gap-2 pt-4 border-top small text-muted-rv">
+        <span>© <span id="year"></span> Revolutain. All rights reserved.</span>
+        <span><a href="#">Privacy</a> · <a href="#">Terms</a></span>
+      </div>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>
+    // Navbar background on scroll
+    const nav = document.getElementById('mainNav');
+    const onScroll = () => nav.classList.toggle('scrolled', window.scrollY > 20);
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+
+    // Close mobile menu after clicking a link
+    const navMenu = document.getElementById('navMenu');
+    navMenu.querySelectorAll('a').forEach(a => a.addEventListener('click', () => {
+      if (navMenu.classList.contains('show')) bootstrap.Collapse.getOrCreateInstance(navMenu).hide();
+    }));
+
+    // Highlight active section in navbar
+    new bootstrap.ScrollSpy(document.body, { target: '#mainNav', rootMargin: '0px 0px -40%' });
+
+    // Animated counters
+    const animateCount = el => {
+      const target = +el.dataset.count, suffix = el.dataset.suffix || '';
+      const start = performance.now(), dur = 1600;
+      const tick = now => {
+        const p = Math.min((now - start) / dur, 1);
+        el.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))).toLocaleString() + suffix;
+        if (p < 1) requestAnimationFrame(tick);
+      };
+      requestAnimationFrame(tick);
+    };
+
+    // Reveal on scroll
+    const io = new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-count]').forEach(animateCount);
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.reveal').forEach(el => io.observe(el));
+
+    // Contact form with Bootstrap validation (placeholder: wire to your email/CRM service)
+    const form = document.getElementById('contactForm');
+    form.addEventListener('submit', e => {
+      e.preventDefault();
+      if (!form.checkValidity()) { form.classList.add('was-validated'); return; }
+      form.classList.remove('was-validated');
+      form.reset();
+      document.getElementById('formNote').classList.remove('d-none');
+    });
+
+    document.getElementById('year').textContent = new Date().getFullYear();
+  </script>
+</body>
 </html>
