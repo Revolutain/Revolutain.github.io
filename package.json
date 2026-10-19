@@ -1,0 +1,12 @@
+{
+  "name": "alluvium-design-previews",
+  "private": true,
+  "scripts": {
+    "build": "node scripts/build-public.mjs",
+    "deploy": "node scripts/build-public.mjs && wrangler deploy",
+    "dev": "node scripts/build-public.mjs && wrangler dev"
+  },
+  "devDependencies": {
+    "wrangler": "^4"
+  }
+}

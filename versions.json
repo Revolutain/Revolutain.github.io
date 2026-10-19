@@ -1,0 +1,14 @@
+{
+  "workerName": "alluvium-design-previews",
+  "zone": "johnwardsinternet.lol",
+  "apexHost": "alluvium.johnwardsinternet.lol",
+  "hostPrefix": "alluvium-",
+  "versions": [
+    {
+      "id": "01",
+      "title": "Baseline",
+      "dir": "versions/01-baseline",
+      "desc": "Unmodified Revolutain page, copied from main at 03a2061"
+    }
+  ]
+}
