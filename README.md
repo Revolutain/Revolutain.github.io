@@ -6,6 +6,12 @@ Preview copies of the Revolutain site, hosted on johnwardsinternet.lol. Producti
 
 - Index: https://alluvium.johnwardsinternet.lol
 - Baseline: https://alluvium-01.johnwardsinternet.lol
+- Editorial (long-scroll): https://alluvium-02.johnwardsinternet.lol
+- Slate (dark, multi-page): https://alluvium-03.johnwardsinternet.lol
+- Grid (typographic, multi-page): https://alluvium-04.johnwardsinternet.lol
+- Bento (light cards, multi-page): https://alluvium-05.johnwardsinternet.lol
+
+Versions 02 to 05 share one information architecture and one copy source, `versions/CONTENT.md`. Change a string there first, then in each version.
 
 Share those custom hostnames. There is no `workers.dev` URL.
 

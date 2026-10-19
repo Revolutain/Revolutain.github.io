@@ -9,6 +9,30 @@
       "title": "Baseline",
       "dir": "versions/01-baseline",
       "desc": "Unmodified Revolutain page, copied from main at 03a2061"
+    },
+    {
+      "id": "02",
+      "title": "Editorial",
+      "dir": "versions/02-editorial",
+      "desc": "Warm editorial long-scroll page with numbered sections and a scrollspy rail"
+    },
+    {
+      "id": "03",
+      "title": "Slate",
+      "dir": "versions/03-slate",
+      "desc": "Dark editorial multi-page site with sticky-stacked approach steps"
+    },
+    {
+      "id": "04",
+      "title": "Grid",
+      "dir": "versions/04-grid",
+      "desc": "Minimal typographic multi-page site with one sub-page per approach step"
+    },
+    {
+      "id": "05",
+      "title": "Bento",
+      "dir": "versions/05-bento",
+      "desc": "Light bento-grid multi-page site with a scroll-snap approach stepper"
     }
   ]
 }
