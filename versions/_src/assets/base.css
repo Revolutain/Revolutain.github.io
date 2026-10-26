@@ -192,12 +192,12 @@ a.card:hover .card-link .arrow { transform: translateX(4px); }
 /* ---------- About ---------- */
 .story { padding: clamp(1.5rem, 3.5vw, 2.5rem); }
 .story p { font-family: var(--font-display); font-weight: var(--display-weight); font-size: clamp(1.15rem, 2vw, 1.5rem); line-height: 1.4; color: var(--ink); max-width: 52rem; }
-.partner { gap: .6rem; }
-.partner img { width: 100%; max-width: 220px; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-sm); }
+.partner { display: flex; flex-direction: column; align-items: stretch; gap: .6rem; height: 100%; }
+.partner img { width: 100%; max-width: 220px; height: auto; aspect-ratio: 1; object-fit: cover; border-radius: var(--radius-sm); align-self: flex-start; }
 .partner h3 { font-size: 1.3rem; margin-top: .5rem; }
 .partner .role { font-size: .85rem; font-weight: 600; color: var(--accent); }
 .partner .bio { font-size: .93rem; line-height: 1.55; }
-.partner .creds { font-size: .8rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: .75rem; margin-top: .25rem; }
+.partner .creds { font-size: .8rem; color: var(--muted); border-top: 1px solid var(--rule); padding-top: .75rem; margin-top: auto; }
 
 /* ---------- Contact ---------- */
 .contact-intro { gap: 1rem; padding: clamp(1.5rem, 3.5vw, 2.5rem); }
