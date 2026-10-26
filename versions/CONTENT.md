@@ -48,6 +48,6 @@ The strings themselves live in `versions/_src/pages/*.html` and `versions/_src/p
 ## Still to confirm with the partners
 
 - The firm story on About (drafted from the bios; check the LSU details and the "two of us met as professor and student" line).
-- Each partner's bio and credentials line (see the HTML comments in `_src/pages/about.html`).
+- Scott's and John Edward's bios and credentials lines (see the HTML comments in `_src/pages/about.html`). James's bio and headshot were supplied on 2026-10-26. The older credential line (MS Computer Science, BS Mathematics, CISM, Certified Scrum Professional) was replaced by the credentials in the supplied bio.
 - The contact form is browser-only: it validates and shows a confirmation but does not send anything. It needs a form backend before launch.
 - Fee wording on Services ("fixed fee", "credited against any build started within 60 days", "six-month minimum", "monthly retainer").
