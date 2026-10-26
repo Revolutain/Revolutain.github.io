@@ -1,0 +1,69 @@
+/* Theme 05 Quiet: no overlay intro; the headline rises in place. Jost 300/400/500
+   everywhere, letter-spaced uppercase labels, flat cards with a hairline rule and no
+   shadow, wider gaps and padding. Crimson appears only in the headline line, the
+   logo, link underlines, the eyebrow dot, and focus rings. Primary button is ink. */
+:root {
+  --bg: #f6f1e9;
+  --bg-2: #efe8dd;
+  --card: #fbf7f0;
+  --card-2: #f1ebe1;
+  --ink: #1e1a17;
+  --ink-2: #4e4742;
+  --muted: #6f675f;
+  --accent: #8a1f1f;
+  --accent-deep: #6d1717;
+  --accent-soft: rgba(138, 31, 31, .07);
+  --rule: rgba(30, 26, 23, .14);
+  --shadow: none;
+  --shadow-hover: none;
+  --font-display: "Jost", "Inter", system-ui, sans-serif;
+  --font-body: "Jost", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Jost", system-ui, sans-serif;
+  --display-weight: 300;
+  --h1-size: clamp(2.1rem, 3.4vw, 3.2rem);
+  --radius: 14px;
+  --radius-sm: 8px;
+  --btn-radius: 999px;
+  --gap: 1.5rem;
+  --card-pad: 1.75rem;
+}
+body { font-size: 1.1rem; font-weight: 400; }
+h1, h2, h3, h4 { letter-spacing: 0; }
+.hero h1, .intro-type { letter-spacing: -.01em; }
+.card h3, .tile h3, .service h3, .partner h3 { font-weight: 400; }
+.starts .steps strong { font-weight: 500; }
+.eyebrow { font-weight: 500; letter-spacing: .14em; color: var(--ink-2); }
+.eyebrow::before { background: var(--accent); }
+.card.accent .eyebrow { color: var(--on-accent); }
+h5, .control label, .footer-col h4 { font-weight: 500; letter-spacing: .14em; }
+.status { font-weight: 500; letter-spacing: .14em; color: var(--muted); }
+.btn { font-weight: 500; box-shadow: none; border-color: var(--ink); background: transparent; }
+.btn:hover { transform: none; background: var(--ink); color: var(--bg); box-shadow: none; }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-on-accent { background: var(--bg); border-color: var(--bg); color: var(--ink); }
+.btn-on-accent:hover { background: #fff; color: var(--ink); }
+.pill { background: transparent; border: 1px solid var(--rule); color: var(--ink-2); font-weight: 500; }
+.primary-nav ul { background: transparent; border: 0; box-shadow: none; gap: .25rem; }
+.primary-nav a { font-weight: 400; color: var(--ink-2); }
+.primary-nav a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.primary-nav a:hover { background: var(--card-2); }
+.tabbar a[aria-current="page"] { background: var(--ink); color: var(--bg); }
+.card, .footer-card { box-shadow: none; }
+a.card.lift:hover { transform: none; border-color: var(--ink); box-shadow: none; }
+.card .num { color: var(--muted); font-weight: 500; }
+.card ul.dash li::before { background: var(--ink-2); height: 1px; top: .8em; }
+.card .card-link { color: var(--ink); font-weight: 500; }
+.card .card-link .arrow { color: var(--accent); }
+.card.accent { background: var(--ink); border-color: var(--ink); }
+.card.accent .eyebrow::before { background: #e0665f; }
+.starts .steps .n { background: var(--bg); color: var(--ink); font-weight: 500; }
+.starts .fine { border-color: rgba(246, 241, 233, .2); }
+.band { background: var(--card-2); border-color: var(--rule); }
+.band p strong { color: var(--accent); font-weight: 400; }
+.stage-nav .n { background: var(--ink); color: var(--bg); font-weight: 500; }
+.stage-nav a:hover { background: var(--card-2); color: var(--ink); }
+.partner .role { color: var(--ink-2); font-weight: 500; }
+.control input, .control select, .control textarea { background: transparent; }
+.control input:focus, .control select:focus, .control textarea:focus { box-shadow: none; }
+.contact-meta svg { color: var(--ink-2); }
