@@ -80,13 +80,37 @@
       intro.hidden = false;
       let t = 0;
       if (variant === 'rings' && markSvg) {
-        markSvg.querySelectorAll('circle, path').forEach((el) => {
+        const draw = (el, duration, delay) => {
           const len = el.getTotalLength();
           el.style.strokeDasharray = String(len);
           el.style.strokeDashoffset = String(len);
-          play(el, [{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration: 700, easing: 'cubic-bezier(.4,0,.2,1)' });
-        });
-        t = 500;
+          play(el, [{ strokeDashoffset: len }, { strokeDashoffset: 0 }], { duration, delay, easing: 'cubic-bezier(.4,0,.2,1)' });
+        };
+        // The inner ring is a stroke and draws directly. The outer arc is a filled, tapered
+        // shape, so it is revealed through a mask whose stroked centreline is what gets drawn.
+        const ring = markSvg.querySelector('.ring');
+        const arc = markSvg.querySelector('.arc');
+        if (ring) draw(ring, 600, 0);
+        if (arc && arc.dataset.guide) {
+          const NS = 'http://www.w3.org/2000/svg';
+          const defs = document.createElementNS(NS, 'defs');
+          const mask = document.createElementNS(NS, 'mask');
+          const guide = document.createElementNS(NS, 'path');
+          mask.setAttribute('id', 'intro-arc-mask');
+          mask.setAttribute('maskUnits', 'userSpaceOnUse');
+          mask.setAttribute('x', '0'); mask.setAttribute('y', '0'); mask.setAttribute('width', '120'); mask.setAttribute('height', '120');
+          guide.setAttribute('d', arc.dataset.guide);
+          guide.setAttribute('fill', 'none');
+          guide.setAttribute('stroke', '#fff');
+          guide.setAttribute('stroke-width', '8');
+          guide.setAttribute('stroke-linecap', 'round');
+          mask.appendChild(guide);
+          defs.appendChild(mask);
+          markSvg.insertBefore(defs, markSvg.firstChild);
+          arc.setAttribute('mask', 'url(#intro-arc-mask)');
+          draw(guide, 800, 250);
+        }
+        t = 650;
       }
       lines.forEach((span, i) => {
         play(span, [{ transform: 'translateY(115%)', opacity: 0 }, { transform: 'translateY(0)', opacity: 1 }], { duration: 800, delay: t + i * 400 });

@@ -59,10 +59,16 @@ button { font: inherit; color: inherit; background: none; border: 0; padding: 0;
 .skip:focus { left: 1rem; top: 1rem; }
 
 /* ---------- Brand ---------- */
-.brand { display: inline-flex; align-items: center; gap: .55rem; color: var(--ink); }
-.brand .mark { width: 2.1rem; height: 2.1rem; color: var(--accent); flex: none; }
-.wordmark { font-family: "Jost", var(--font-display); font-weight: 300; font-size: 1.35rem; letter-spacing: .04em; line-height: 1; color: var(--ink); }
-.wordmark b { font-weight: 600; color: var(--accent); }
+/* Brand lockup. The mark is the reference logo redrawn: a thin inner ring sitting high inside an
+   open outer arc that runs from one o'clock round to nine, tapering to points at both ends.
+   The wordmark is the reference's light, wide-tracked lowercase with a bold crimson AI. */
+.brand { display: inline-flex; align-items: center; gap: .6rem; color: var(--ink); }
+.brand .mark { width: 2.4rem; height: 2.4rem; color: var(--accent); flex: none; }
+.wordmark { font-family: "Jost", sans-serif; font-weight: 300; font-size: 1.3rem; letter-spacing: .12em; line-height: 1; color: var(--ink); }
+.wordmark b { font-weight: 700; color: var(--accent); letter-spacing: .06em; }
+.brand.stacked { flex-direction: column; gap: 1.1rem; }
+.brand.stacked .mark { width: clamp(5.5rem, 12vw, 7rem); height: clamp(5.5rem, 12vw, 7rem); }
+.brand.stacked .wordmark { font-size: clamp(1.9rem, 4.4vw, 2.6rem); }
 
 /* ---------- Buttons and pills ---------- */
 .btn { display: inline-flex; align-items: center; gap: .55rem; padding: .8rem 1.25rem; border-radius: var(--btn-radius); font-family: var(--font-body); font-weight: 600; font-size: .93rem; line-height: 1.1; border: 1px solid var(--rule); background: var(--card); color: var(--ink); box-shadow: var(--shadow); transition: transform .25s var(--ease), box-shadow .25s var(--ease), background .25s var(--ease), color .25s var(--ease), border-color .25s var(--ease); }

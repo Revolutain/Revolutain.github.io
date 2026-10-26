@@ -4,7 +4,7 @@ The strings themselves live in `versions/_src/pages/*.html` and `versions/_src/p
 
 ## Rules
 
-- Brand: **RevolutAIn**, with that capitalisation everywhere, in prose and in the mark. Never "Revolutain" or "revolutain".
+- Brand: **RevolutAIn**, with that capitalisation in all prose. Never "Revolutain" or "revolutain". The logo lockup is the one exception: it reproduces the reference artwork, lowercase `revolut`, bold crimson `AI`, lowercase `n`, under the two rings (`_src/partials/mark.html` and `brand.html`).
 - Partners: J. Scott Fargason, James Davis, John Edward Schwartzenburg, in that order. "John Edward" is never shortened to "John".
 - Bios name no employers, current or former. Degrees, LSU roles, certifications, and generic descriptions of the work are allowed. No figures (revenue, headcount, deal sizes, years).
 - No prices and no geography, apart from LSU where it is part of a role.
