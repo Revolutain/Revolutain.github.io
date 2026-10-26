@@ -145,6 +145,10 @@ a.card:hover .card-link .arrow { transform: translateX(4px); }
 .starts .steps div span { display: block; font-size: .92rem; color: var(--on-accent); opacity: .9; line-height: 1.45; }
 .starts .fine { font-size: .85rem; opacity: .85; padding-top: .5rem; border-top: 1px solid rgba(255, 255, 255, .25); }
 .tile h3 { font-size: 1.3rem; }
+/* The three home tiles share a row. Flex lets the crimson link sit on the bottom edge of each card, so the three links line up. */
+.hero .tile { display: flex; flex-direction: column; align-items: flex-start; }
+.hero .tile > p { align-self: stretch; }
+.hero .tile .card-link { margin-top: auto; }
 .avatars { display: flex; }
 .avatars img { width: 2.6rem; height: 2.6rem; border-radius: 50%; object-fit: cover; border: 2px solid var(--card); margin-left: -.6rem; }
 .avatars img:first-child { margin-left: 0; }
