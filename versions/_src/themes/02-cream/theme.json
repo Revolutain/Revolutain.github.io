@@ -1,0 +1,9 @@
+{
+  "id": "02",
+  "slug": "cream",
+  "title": "Cream",
+  "desc": "Bento on cream and crimson; Jost and Inter; soft cards; full-screen headline intro",
+  "intro": "takeover",
+  "themeColor": "#f6f1e9",
+  "fonts": "https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&family=Inter:wght@400;500;600&display=swap"
+}

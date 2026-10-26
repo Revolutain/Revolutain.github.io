@@ -1,0 +1,9 @@
+{
+  "id": "05",
+  "slug": "quiet",
+  "title": "Quiet",
+  "desc": "Bento with no full-screen intro: light Jost throughout, flat cards with a hairline rule, wider gaps, crimson only where it means something",
+  "intro": "none",
+  "themeColor": "#f6f1e9",
+  "fonts": "https://fonts.googleapis.com/css2?family=Jost:wght@300;400;500;600&display=swap"
+}

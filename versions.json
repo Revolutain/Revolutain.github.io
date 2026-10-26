@@ -8,31 +8,31 @@
       "id": "01",
       "title": "Baseline",
       "dir": "versions/01-baseline",
-      "desc": "Unmodified Revolutain page, copied from main at 03a2061"
+      "desc": "Unmodified RevolutAIn page, copied from main at 03a2061"
     },
     {
       "id": "02",
-      "title": "Editorial",
-      "dir": "versions/02-editorial",
-      "desc": "Warm editorial long-scroll page with numbered sections and a scrollspy rail"
+      "title": "Cream",
+      "dir": "versions/02-cream",
+      "desc": "Bento on cream and crimson; Jost and Inter; soft cards; full-screen headline intro"
     },
     {
       "id": "03",
-      "title": "Slate",
-      "dir": "versions/03-slate",
-      "desc": "Dark editorial multi-page site with sticky-stacked approach steps"
+      "title": "Editorial Bento",
+      "dir": "versions/03-editorial-bento",
+      "desc": "Bento cards with editorial type: Fraunces and italics, mono eyebrows, hairline rules, grain, numbered sections"
     },
     {
       "id": "04",
-      "title": "Grid",
-      "dir": "versions/04-grid",
-      "desc": "Minimal typographic multi-page site with one sub-page per approach step"
+      "title": "Ink",
+      "dir": "versions/04-ink",
+      "desc": "Bento with an ink hero card and footer on cream, crimson tiles, Manrope; the logo rings draw first and fly to the header"
     },
     {
       "id": "05",
-      "title": "Bento",
-      "dir": "versions/05-bento",
-      "desc": "Light bento-grid multi-page site with a scroll-snap approach stepper"
+      "title": "Quiet",
+      "dir": "versions/05-quiet",
+      "desc": "Bento with no full-screen intro: light Jost throughout, flat cards with a hairline rule, wider gaps, crimson only where it means something"
     }
   ]
 }

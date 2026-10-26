@@ -1,0 +1,21 @@
+/* Theme 02 Cream: the faithful merge. Jost display, Inter body, warm-white cards
+   with a soft shadow on cream, pill nav, crimson accents. */
+:root {
+  --bg: #f6f1e9;
+  --bg-2: #efe8dd;
+  --card: #fffcf7;
+  --card-2: #efe8dd;
+  --rule: rgba(30, 26, 23, .1);
+  --font-display: "Jost", "Inter", system-ui, sans-serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Inter", system-ui, sans-serif;
+  --display-weight: 500;
+  --h1-size: clamp(2rem, 3.2vw, 3rem);
+  --radius: 20px;
+  --radius-sm: 12px;
+  --btn-radius: 999px;
+}
+.status, .card .num, .starts .steps .n, .stage-nav .n { font-family: var(--font-body); letter-spacing: .06em; }
+h1, h2, h3 { letter-spacing: -.01em; }
+.hero h1 { letter-spacing: -.02em; }
+.intro-type { letter-spacing: -.02em; }

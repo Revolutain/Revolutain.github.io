@@ -1,0 +1,64 @@
+/* Theme 03 Editorial Bento: bento layout, editorial voice. Fraunces display with
+   the crimson line in italic, IBM Plex Mono eyebrows and numbers, flat stone cards
+   with hairline ink rules and no shadow, a grain overlay, numbered section heads. */
+:root {
+  --bg: #f4efe6;
+  --bg-2: #ebe4d6;
+  --card: #ebe4d6;
+  --card-2: #e2dac9;
+  --ink: #1c1917;
+  --ink-2: #4f4944;
+  --muted: #6b645c;
+  --accent: #7a2323;
+  --accent-deep: #5e1a1a;
+  --accent-soft: rgba(122, 35, 35, .09);
+  --rule: rgba(28, 25, 23, .18);
+  --shadow: none;
+  --shadow-hover: 0 10px 30px -18px rgba(28, 25, 23, .35);
+  --font-display: "Fraunces", "Iowan Old Style", "Palatino Linotype", Georgia, serif;
+  --font-body: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+  --display-weight: 400;
+  --h1-size: clamp(2.1rem, 3.4vw, 3.2rem);
+  --radius: 10px;
+  --radius-sm: 6px;
+  --btn-radius: 2px;
+}
+body::after { content: ""; position: fixed; inset: 0; z-index: 95; pointer-events: none; opacity: .05; mix-blend-mode: multiply; background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='240' height='240'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E"); background-size: 240px 240px; }
+h1, h2, h3, h4 { font-weight: 400; letter-spacing: -.01em; }
+.hero h1 { font-weight: 300; letter-spacing: -.02em; }
+.hero h1 .hl, .intro-line.hl { font-style: italic; font-weight: 400; }
+.intro-type { font-weight: 300; }
+.eyebrow { font-family: var(--font-mono); font-weight: 500; letter-spacing: .12em; font-size: .74rem; }
+.eyebrow::before { width: .75rem; height: 1px; border-radius: 0; }
+h5, .control label, .footer-col h4 { font-family: var(--font-mono); font-weight: 500; letter-spacing: .1em; }
+.card .num, .status, .starts .steps .n, .stage-nav .n, .partner .creds, .legal, .pill { font-family: var(--font-mono); }
+.pill { font-weight: 500; font-size: .72rem; letter-spacing: .04em; text-transform: uppercase; border-radius: 2px; }
+.btn { font-weight: 500; border-color: var(--ink); background: transparent; box-shadow: none; }
+.btn:hover { background: var(--ink); color: var(--bg); transform: none; box-shadow: none; }
+.btn-primary { background: var(--ink); border-color: var(--ink); color: var(--bg); }
+.btn-primary:hover { background: var(--accent); border-color: var(--accent); color: #fff; }
+.btn-on-accent { background: var(--bg); border-color: var(--bg); color: var(--accent); }
+.btn-on-accent:hover { background: #fff; color: var(--accent-deep); }
+.primary-nav ul { background: transparent; border: 0; box-shadow: none; gap: 1.25rem; padding: 0; }
+.primary-nav a { padding: .4rem 0; border-radius: 0; position: relative; }
+.primary-nav a:hover { background: transparent; color: var(--ink); }
+.primary-nav a::after { content: ""; position: absolute; left: 0; right: 100%; bottom: 0; height: 1px; background: var(--accent); transition: right .3s var(--ease); }
+.primary-nav a:hover::after, .primary-nav a[aria-current="page"]::after { right: 0; }
+.primary-nav a[aria-current="page"] { background: transparent; color: var(--ink); }
+.tabbar a[aria-current="page"] { background: transparent; color: var(--accent); }
+.card { box-shadow: none; }
+a.card.lift:hover { transform: none; border-color: var(--ink); box-shadow: none; }
+.card.accent { border-color: var(--accent); }
+.footer-card { box-shadow: none; }
+/* Numbered section heads with a hairline top rule */
+main { counter-reset: sec; }
+.section-head { border-top: 1px solid var(--ink); padding-top: 1rem; counter-increment: sec; }
+.section-head .eyebrow::before { content: counter(sec, decimal-leading-zero); width: auto; height: auto; background: none; border-radius: 0; font-family: var(--font-mono); color: var(--accent); }
+.story p { font-style: italic; font-weight: 300; }
+.band p strong { font-style: italic; }
+.partner img { filter: saturate(.85) contrast(1.02); border: 1px solid var(--rule); }
+.control input, .control select, .control textarea { background: transparent; border: 0; border-bottom: 1px solid rgba(28, 25, 23, .45); border-radius: 0; padding: .7rem 0; }
+.control input:focus, .control select:focus, .control textarea:focus { box-shadow: none; border-bottom-color: var(--accent); }
+.control select { background-position: right 0 center; padding-right: 1.6rem; }
+.intro { background: var(--bg); }

@@ -1,0 +1,62 @@
+/* Theme 04 Ink: Manrope throughout (Jost only in the wordmark). Ink hero card and
+   footer with cream text and the crimson line; white content cards; crimson CTA
+   tiles; a stronger shadow; the active nav pill is ink. */
+:root {
+  --bg: #f6f1e9;
+  --bg-2: #efe8dd;
+  --card: #ffffff;
+  --card-2: #f1ebe1;
+  --ink: #1f1a17;
+  --ink-2: #4a433e;
+  --muted: #6c645c;
+  --accent: #8a1f1f;
+  --accent-deep: #6d1717;
+  --accent-soft: rgba(138, 31, 31, .08);
+  --on-accent: #fbf5ec;
+  --rule: rgba(31, 26, 23, .1);
+  --shadow: 0 1px 2px rgba(31, 26, 23, .05), 0 18px 40px -20px rgba(31, 26, 23, .3);
+  --shadow-hover: 0 2px 4px rgba(31, 26, 23, .06), 0 28px 56px -22px rgba(31, 26, 23, .38);
+  --font-display: "Manrope", "Inter", system-ui, sans-serif;
+  --font-body: "Manrope", "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --font-mono: "Manrope", system-ui, sans-serif;
+  --display-weight: 800;
+  --h1-size: clamp(1.9rem, 2.9vw, 2.7rem);
+  --radius: 24px;
+  --radius-sm: 14px;
+  --btn-radius: 999px;
+}
+h1, h2, h3, h4 { letter-spacing: -.03em; }
+.hero h1, .intro-type { letter-spacing: -.035em; }
+.card h3 { font-weight: 700; }
+.starts .steps strong, .band p, .story p { font-weight: 700; }
+.status, .card .num, .starts .steps .n, .stage-nav .n { font-family: var(--font-body); font-weight: 700; letter-spacing: .06em; }
+.eyebrow { font-weight: 700; }
+h5, .control label, .footer-col h4 { font-weight: 700; }
+.btn, .pill { font-weight: 700; }
+.primary-nav a[aria-current="page"], .tabbar a[aria-current="page"] { background: var(--ink); color: var(--on-accent); }
+.primary-nav a { font-weight: 600; }
+/* Ink hero card */
+.hero .card.main { background: var(--ink); color: var(--on-accent); border-color: var(--ink); }
+.hero .card.main .status { color: rgba(251, 245, 236, .72); }
+.hero .card.main .status span + span::before { color: #d8807a; }
+.hero .card.main h1 { color: var(--on-accent); }
+.hero .card.main .hl { color: #e0665f; }
+.hero .card.main .lead { color: rgba(251, 245, 236, .82); }
+.hero .card.main .btn { background: transparent; border-color: rgba(251, 245, 236, .35); color: var(--on-accent); box-shadow: none; }
+.hero .card.main .btn:hover { background: rgba(251, 245, 236, .1); }
+.hero .card.main .btn-primary { background: var(--accent); border-color: var(--accent); }
+.hero .card.main .btn-primary:hover { background: #a02828; border-color: #a02828; }
+.hero .card.main:focus-within { outline: none; }
+.intro-line.hl { color: var(--accent); }
+/* Ink footer card */
+.footer-card { background: var(--ink); color: var(--on-accent); border-color: var(--ink); }
+.footer-card .brand, .footer-card .wordmark { color: var(--on-accent); }
+.footer-card .wordmark b { color: #e0665f; }
+.footer-card .mark { color: #e0665f; }
+.footer-brand p, .footer-col a { color: rgba(251, 245, 236, .78); }
+.footer-col a:hover { color: #fff; }
+.footer-col h4 { color: rgba(251, 245, 236, .55); }
+.legal { color: rgba(251, 245, 236, .55); border-color: rgba(251, 245, 236, .15); }
+/* Tone cards take the cream of the page so white cards stand out */
+.card.tone { background: var(--card-2); border-color: transparent; box-shadow: none; }
+.card .field { background: var(--bg); }

@@ -2,9 +2,10 @@
   "name": "alluvium-design-previews",
   "private": true,
   "scripts": {
-    "build": "node scripts/build-public.mjs",
-    "deploy": "node scripts/build-public.mjs && wrangler deploy",
-    "dev": "node scripts/build-public.mjs && wrangler dev"
+    "build:versions": "node scripts/build-versions.mjs",
+    "build": "node scripts/build-versions.mjs && node scripts/build-public.mjs",
+    "deploy": "node scripts/build-versions.mjs && node scripts/build-public.mjs && wrangler deploy",
+    "dev": "node scripts/build-versions.mjs && node scripts/build-public.mjs && wrangler dev"
   },
   "devDependencies": {
     "wrangler": "^4"

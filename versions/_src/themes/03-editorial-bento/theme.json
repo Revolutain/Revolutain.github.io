@@ -1,0 +1,9 @@
+{
+  "id": "03",
+  "slug": "editorial-bento",
+  "title": "Editorial Bento",
+  "desc": "Bento cards with editorial type: Fraunces and italics, mono eyebrows, hairline rules, grain, numbered sections",
+  "intro": "takeover",
+  "themeColor": "#f4efe6",
+  "fonts": "https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..500;1,9..144,300..500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&family=Jost:wght@300;600&display=swap"
+}

@@ -1,0 +1,28 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>{{title}}</title>
+  <meta name="description" content="{{description}}">
+  <meta name="theme-color" content="{{themeColor}}">
+  <link rel="icon" href="/assets/favicon.svg" type="image/svg+xml">
+  <script>
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      var intro = d.getAttribute('data-intro');
+      if (!intro || intro === 'none') return;
+      var q = window.location.search;
+      var force = /[?&]intro=1(?:&|$)/.test(q);
+      var block = /[?&]intro=0(?:&|$)/.test(q);
+      var reduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var seen = false;
+      try { seen = !!window.sessionStorage.getItem('revolutAIn:intro-seen'); } catch (e) { seen = false; }
+      if (force || (!block && !reduce && !seen && !window.location.hash)) d.classList.add('intro-on');
+    })();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="{{fonts}}" rel="stylesheet">
+  <link rel="stylesheet" href="/assets/base.css">
+  <link rel="stylesheet" href="/assets/theme.css">
+</head>
